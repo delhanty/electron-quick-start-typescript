@@ -7,6 +7,10 @@ function createWindow() {
     height: 600,
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
+      // Need `contextIslation` and `worldSafeExecuteJavaScript` both set
+      // to silence recent `webFrame.executeJavaScript` warnings.
+      contextIsolation:           true,
+      worldSafeExecuteJavaScript: true
     },
     width: 800,
   });
